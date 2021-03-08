@@ -1,12 +1,19 @@
-import { Navbar } from 'trunx'
+import { Navbar, Button } from 'trunx'
 import { route } from '../routes'
 import { useState, useCallback } from 'react'
 import { Redirect, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { exitAccount } from '../reducers/account'
 
 export function Topbar() {
   const [redirect, setRedirect] = useState()
   const { pathname } = useLocation()
   const [menuIsOpen, setMenuIsOpen] = useState(false)
+  const dispatch = useDispatch()
+
+  const exit = useCallback(() => {
+    dispatch(exitAccount())
+  }, [dispatch])
 
   const goToPage = useCallback(
     (target) => () => {
@@ -47,6 +54,11 @@ export function Topbar() {
             Settings
           </Navbar.Item>
         </Navbar.Start>
+        <Navbar.End>
+          <Navbar.Item>
+            <Button onClick={exit}>Exit</Button>
+          </Navbar.Item>
+        </Navbar.End>
       </Navbar.Menu>
     </Navbar>
   )
