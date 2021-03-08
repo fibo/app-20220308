@@ -1,15 +1,19 @@
 import { Navbar, Button } from 'trunx'
 import { route } from '../routes'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Redirect, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { exitAccount } from '../reducers/account'
+import { addEventListenerStorage, exitAccount } from '../reducers/account'
 
 export function Topbar() {
   const [redirect, setRedirect] = useState()
   const { pathname } = useLocation()
   const [menuIsOpen, setMenuIsOpen] = useState(false)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(addEventListenerStorage())
+  }, [])
 
   const exit = useCallback(() => {
     dispatch(exitAccount())
