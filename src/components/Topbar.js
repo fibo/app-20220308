@@ -14,12 +14,12 @@ export function Topbar() {
         setRedirect(target)
       }
     },
-    []
+    [pathname]
   )
 
   const toggleMenu = useCallback(() => {
     setMenuIsOpen((prev) => !prev)
-  })
+  }, [])
 
   if (redirect) {
     return <Redirect to={redirect} />
@@ -33,6 +33,7 @@ export function Topbar() {
             src='https://bulma.io/images/bulma-logo.png'
             width='112'
             height='28'
+            alt='home'
           />
         </Navbar.Item>
         <Navbar.Burger isActive={menuIsOpen} onClick={toggleMenu} />

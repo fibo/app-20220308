@@ -1,0 +1,70 @@
+.loading-dots {
+  $loading-dot-size: 12px;
+  $loading-dot-step: 8px;
+  $loading-dot-speed: 0.7s;
+
+  align-items: center;
+  display: flex;
+  height: 1rem;
+  position: relative;
+  width: $loading-dot-step * 10;
+
+  @keyframes loading-dots1 {
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes loading-dots2 {
+    from {
+      transform: translate(0, 0);
+    }
+
+    to {
+      transform: translate(24px, 0);
+    }
+  }
+
+  @keyframes loading-dots3 {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(0);
+    }
+  }
+
+  div {
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    background: $primary;
+    border-radius: 50%;
+    height: $loading-dot-size;
+    position: absolute;
+    width: $loading-dot-size;
+  }
+
+  div:nth-child(1) {
+    animation: loading-dots1 $loading-dot-speed infinite;
+    left: $loading-dot-step;
+  }
+
+  div:nth-child(2) {
+    animation: loading-dots2 $loading-dot-speed infinite;
+    left: $loading-dot-step;
+  }
+
+  div:nth-child(3) {
+    animation: loading-dots2 $loading-dot-speed infinite;
+    left: $loading-dot-step * 4;
+  }
+
+  div:nth-child(4) {
+    animation: loading-dots3 $loading-dot-speed infinite;
+    left: $loading-dot-step * 7;
+  }
+}
