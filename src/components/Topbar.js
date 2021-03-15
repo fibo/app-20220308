@@ -1,9 +1,10 @@
 import { Navbar, Button } from 'trunx'
-import { route } from '../routes'
 import { useState, useCallback, useEffect } from 'react'
 import { Redirect, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+
 import { addEventListenerStorage, exitAccount } from '../reducers/account'
+import { route } from '../routes'
 
 export function Topbar() {
   const [redirect, setRedirect] = useState()

@@ -16,14 +16,28 @@
   },
   "scripts": {
     "lint-staged": "lint-staged",
-    "json-server": "json-server --watch db.json",
+    "json-server": "json-server --port 4000 --watch db.json",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
       "react-app"
-    ]
+    ],
+    "ignorePatterns": [
+      "build"
+    ],
+    "rules": {
+      "import/order": "error",
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 1,
+          "maxEOF": 1
+        }
+      ],
+      "react/jsx-key": "error"
+    }
   },
   "browserslist": {
     "production": [

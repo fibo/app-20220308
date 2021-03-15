@@ -1,9 +1,10 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { route } from './routes'
-import Homepage from './pages/Homepage'
 import { lazy, Suspense } from 'react'
-import { Loading } from './components/Loading'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
+
+import { Loading } from './components/Loading'
+import Homepage from './pages/Homepage'
+import { route } from './routes'
 import store from './storages/redux'
 
 const SettingsPage = lazy(() => import('./pages/Settings'))
